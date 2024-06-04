@@ -13,7 +13,7 @@ const App = () => {
     <>
       <GlobalStyles />
       <div>
-        <H1>App</H1>
+        <H1>Hello World</H1>
       </div>
     </>
   );
