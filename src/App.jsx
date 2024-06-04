@@ -14,6 +14,7 @@ const App = () => {
       <GlobalStyles />
       <div>
         <H1>Hello World</H1>
+        <H1>Try another token test</H1>
       </div>
     </>
   );
