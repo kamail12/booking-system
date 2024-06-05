@@ -321,7 +321,7 @@ FOR DARK MODE
   & h1 {
     margin-bottom: 3.2rem;
   }
-`;function Z1(){const e=Y1();return P.jsx(G1,{children:P.jsxs(X1,{children:[P.jsx(at,{as:"h1",children:"The page you are looking for could not be found 😢"}),P.jsx("button",{onClick:e,size:"large",children:"← Go back"})]})})}const J1="/booking-system/assets/react-35ef61ed.svg",q1=Ce.div`
+`;function Z1(){const e=Y1();return P.jsx(G1,{children:P.jsxs(X1,{children:[P.jsx(at,{as:"h1",children:"The page you are looking for could not be found 😢"}),P.jsx("button",{onClick:e,size:"large",children:"← Go back"})]})})}const J1="/booking-system/assets/logo-light-ce8805ee.webp",q1=Ce.div`
   text-align: center;
 `,b1=Ce.img`
   height: 9.6rem;
