@@ -12,10 +12,12 @@ import Login from './pages/Login';
 import PageNotFound from './pages/PageNotFound';
 
 const App = () => {
+  const basename = '/booking-system/';
+
   return (
     <>
       <GlobalStyles />
-      <BrowserRouter>
+      <BrowserRouter basename={basename}>
         <Routes>
           <Route index element={<Navigate replace to="dashboard" />} />
           <Route path="dashboard" element={<Dashboard />} />
