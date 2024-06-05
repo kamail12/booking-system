@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import LogoLight from '../assets/react.svg';
+import LogoLight from '../assets/logo-light.webp';
 
 const StyledLogo = styled.div`
   text-align: center;
