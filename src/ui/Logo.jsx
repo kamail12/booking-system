@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import LogoLight from '../assets/logo-light.png';
 
 const StyledLogo = styled.div`
   text-align: center;
@@ -12,7 +13,7 @@ const Img = styled.img`
 function Logo() {
   return (
     <StyledLogo>
-      <Img src="/public/logo-light.png" alt="Logo" />
+      <Img src={LogoLight} alt="Logo" />
     </StyledLogo>
   );
 }
