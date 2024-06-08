@@ -52,36 +52,40 @@ const StyledNavLink = styled(NavLink)`
   }
 `;
 
-const MainNav = () => {
+const MainNav = ({ closeSidebar }) => {
+  const handleNavLinkClick = () => {
+    closeSidebar();
+  };
+
   return (
     <nav>
       <NavList>
         <li>
-          <StyledNavLink to="/dashboard">
+          <StyledNavLink to="/dashboard" onClick={handleNavLinkClick}>
             <HiOutlineHome />
             <span>Home</span>
           </StyledNavLink>
         </li>
         <li>
-          <StyledNavLink to="/bookings">
+          <StyledNavLink to="/bookings" onClick={handleNavLinkClick}>
             <HiOutlineCalendarDays />
             <span>Bookings</span>
           </StyledNavLink>
         </li>
         <li>
-          <StyledNavLink to="/cabins">
+          <StyledNavLink to="/cabins" onClick={handleNavLinkClick}>
             <HiOutlineHomeModern />
             <span>Cabins</span>
           </StyledNavLink>
         </li>
         <li>
-          <StyledNavLink to="/users">
+          <StyledNavLink to="/users" onClick={handleNavLinkClick}>
             <HiOutlineUsers />
             <span>Users</span>
           </StyledNavLink>
         </li>
         <li>
-          <StyledNavLink to="/settings">
+          <StyledNavLink to="/settings" onClick={handleNavLinkClick}>
             <HiCog6Tooth />
             <span>Settings</span>
           </StyledNavLink>
