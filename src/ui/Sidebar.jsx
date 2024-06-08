@@ -18,7 +18,9 @@ const StyledSidebar = styled.aside`
   }
 `;
 
-const StyledSidebarMobile = styled.aside`
+const StyledSidebarMobile = styled(({ isOpen, ...rest }) => (
+  <aside {...rest} />
+))`
   background-color: var(--color-grey-0);
   position: fixed;
   top: 0;
