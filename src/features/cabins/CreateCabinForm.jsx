@@ -115,7 +115,8 @@ function CreateCabinForm({ cabinToEdit = {}, onShowForm }) {
           {...register('discount', {
             required: 'This field is required',
             validate: (currentDiscountValue) =>
-              currentDiscountValue <= getValues().regularPrice ||
+              parseFloat(currentDiscountValue) <=
+                parseFloat(getValues().regularPrice) ||
               'Discount should not exceed regular price',
           })}
         />
