@@ -25,5 +25,5 @@ export const getToday = function (options = {}) {
 // Function to format a value as USD currency
 export const formatCurrency = (value) =>
   new Intl.NumberFormat('en', { style: 'currency', currency: 'USD' }).format(
-    value
+    parseFloat(value)
   );

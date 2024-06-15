@@ -9,6 +9,9 @@ import FileInput from '../../ui/FileInput';
 import Textarea from '../../ui/Textarea';
 import toast from 'react-hot-toast';
 import FormRow from '../../ui/FormRow';
+import { useState } from 'react';
+import { useCreateCabin } from './useCreateCabin';
+import { useEditCabin } from './useEditCabin';
 
 function CreateCabinForm({ cabinToEdit = {}, onShowForm }) {
   const { id: editId, ...editValues } = cabinToEdit;
@@ -19,35 +22,8 @@ function CreateCabinForm({ cabinToEdit = {}, onShowForm }) {
   });
   const { errors } = formState;
 
-  const queryClient = useQueryClient();
-
-  const { mutate: createCabin, isLoading: isCreating } = useMutation({
-    mutationFn: createEditCabin,
-    onSuccess: () => {
-      toast.success('New cabin succesfuly created');
-      queryClient.invalidateQueries({
-        queryKey: ['cabins'],
-      });
-      onShowForm(false);
-    },
-    onError: (err) => {
-      toast.error(err.message);
-    },
-  });
-
-  const { mutate: editCabin, isLoading: isEditing } = useMutation({
-    mutationFn: ({ newCabinData, id }) => createEditCabin(newCabinData, id),
-    onSuccess: () => {
-      toast.success('New cabin succesfuly edited');
-      queryClient.invalidateQueries({
-        queryKey: ['cabins'],
-      });
-      onShowForm(false);
-    },
-    onError: (err) => {
-      toast.error(err.message);
-    },
-  });
+  const { createCabin, isCreating } = useCreateCabin({ onShowForm });
+  const { editCabin, isEditing } = useEditCabin({ onShowForm });
 
   const isWorking = isCreating || isEditing;
 
@@ -114,6 +90,10 @@ function CreateCabinForm({ cabinToEdit = {}, onShowForm }) {
           defaultValue={0}
           {...register('discount', {
             required: 'This field is required',
+            min: {
+              value: 0,
+              message: 'Discount should be at least 0',
+            },
             validate: (currentDiscountValue) =>
               parseFloat(currentDiscountValue) <=
                 parseFloat(getValues().regularPrice) ||
